@@ -1,15 +1,16 @@
 """
+
 Requried Paramters
 
 time (array) --> time of observations (in BJD_TDB)
-p --> planet radius (in terms of stellar radius)
-i --> inclination (in degrees)
-a --> semi-major axis (in terms of stellar radius)
-period --> orbital period (in days)
-ldc (array) --> limb darkening coefficients (upto 4)
 mid_time --> transit mid-time (in same units as time)
-"""
+period --> orbital period (in days)
+a --> semi-major axis (in terms of stellar radius)
+i --> inclination (in degrees)
+p --> planet radius (in terms of stellar radius)
+ldc (array) --> limb darkening coefficients (upto 4)
 
+"""
 
 import numpy as np
 from scipy.integrate import quad
@@ -64,4 +65,6 @@ def TransitModel(time, mid_time, period, a, i, p, ldc):
 transit_flux = TransitModel(time, mid_time, period, a, i, p, ldc)
                             
 plt.plot(time-mid_time, transit_flux, ".-")
+plt.xlabel("Time from $T_{mid}$ (BJD_TDB)")
+plt.ylabel("Relative Flux")
 plt.show()
