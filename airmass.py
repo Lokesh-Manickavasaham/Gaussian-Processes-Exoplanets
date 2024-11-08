@@ -57,14 +57,15 @@ def calculate_airmass(folder_path, observatory):
                 air_mass = float('nan')
 
             tot_airmass.append(air_mass)
+            
     return tot_time, tot_airmass
 
 observatory = EarthLocation(lat=latitude*u.deg, lon=longitude*u.deg, height=elevation*u.m)
 
 tot_time, tot_airmass = calculate_airmass(folder_path, observatory)
 
-time = np.take_along_axis(np.array(tot_time), np.argsort(tot_time), axis=0)
 airmass = np.take_along_axis(np.array(tot_airmass), np.argsort(tot_time), axis=0)
+time = np.take_along_axis(np.array(tot_time), np.argsort(tot_time), axis=0)
 
 plt.plot(time, airmass, ".-")
 plt.xlabel("Time (BJD_TDB)")
