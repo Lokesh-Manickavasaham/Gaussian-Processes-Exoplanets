@@ -67,7 +67,10 @@ tot_time, tot_airmass = calculate_airmass(folder_path, observatory)
 airmass = np.take_along_axis(np.array(tot_airmass), np.argsort(tot_time), axis=0)
 time = np.take_along_axis(np.array(tot_time), np.argsort(tot_time), axis=0)
 
-plt.plot(time, airmass, ".-")
-plt.xlabel("Time (BJD_TDB)")
-plt.ylabel("Airmass")
+fig, ax1 = plt.subplots(nrows=1, ncols=1, figsize=(12, 5), layout='constrained')
+
+ax1.plot(time, airmass, ".-")
+ax1.set_xlabel("Time (BJD_TDB)")
+ax1.set_ylabel("Airmass")
+
 plt.show()
