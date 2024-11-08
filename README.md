@@ -1,0 +1,1 @@
+This repository contains some of my internship work on the Application of Gaussian Processes to Low-Resolution Transmission Spectroscopy of Exoplanets carried out at the Indian Institute of Astrophysics. 
