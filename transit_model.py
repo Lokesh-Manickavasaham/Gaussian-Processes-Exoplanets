@@ -63,8 +63,11 @@ def TransitModel(time, mid_time, period, a, i, p, ldc):
     return flux
 
 transit_flux = TransitModel(time, mid_time, period, a, i, p, ldc)
-                            
-plt.plot(time-mid_time, transit_flux, ".-")
-plt.xlabel("Time from $T_{mid}$ (BJD_TDB)")
-plt.ylabel("Relative Flux")
+
+fig, ax1 = plt.subplots(nrows=1, ncols=1, figsize=(12, 5), layout='constrained')
+
+ax1.plot(time-mid_time, transit_flux, ".-")
+ax1.set_xlabel("Time from $T_{mid}$ (BJD_TDB)")
+ax1.set_ylabel("Relative Flux")
+
 plt.show()
